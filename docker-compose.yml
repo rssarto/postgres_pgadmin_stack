@@ -14,6 +14,8 @@ services:
       - 5432:5432
     networks:
       - postgres_network
+    volumes:
+      - /opt/data/postgres:/var/lib/postgresql/data
 
   pgadmin:
     container_name: pgadmin-server
@@ -28,6 +30,8 @@ services:
       - 'PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10'
     networks:
       - postgres_network
+    volumes:
+      - /opt/data/pgadmin:/var/lib/pgadmin
 
 networks:
   postgres_network:
